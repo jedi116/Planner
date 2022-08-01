@@ -1,6 +1,5 @@
 import React from "react";
 import "./home.css";
-import Typing from 'react-typing-animation';
 import workImage from '../../../assests/work1.1.jpg'
 
 
@@ -14,9 +13,7 @@ export const Home: React.FC<{}> = () => {
                 <div className="row pt-xl-5 pt-lg-5 d-sm-flex flex-column-reverse flex-lg-row text-center text-md-start">
                     <div className="col-xl-6 col-lg-7 pt-xl-5 mt-xl-5 mt-lg-5">
                     <h3 className="h3 fw-semibold opacity-75">
-                        <Typing speed={50}>
                             <span>Start Planning and Stop forgetting</span>
-                        </Typing>
                         <span id="typed"></span>
                     </h3>
 
