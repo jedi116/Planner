@@ -21,16 +21,17 @@ import {
      addDoc,
     } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { parseString } from '../helpers'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECTID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID
+  apiKey: parseString(import.meta.env.VITE_API_KEY, ''),
+  authDomain: parseString(import.meta.env.VITE_AUTH_DOMAIN, '') ,
+  projectId:parseString(import.meta.env.VITE_PROJECTID, '') ,
+  storageBucket:parseString(import.meta.env.VITE_STORAGE_BUCKET, '') ,
+  messagingSenderId:parseString(import.meta.env.VITE_MESSAGINGSENDERID, '') ,
+  appId:parseString(import.meta.env.VITE_APP_ID, '') ,
+  measurementId:parseString(import.meta.env.VITE_MEASUREMENT_ID, '') 
 };
 
 // Initialize Firebase
