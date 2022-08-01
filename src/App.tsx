@@ -4,6 +4,7 @@ import { Router } from './router'
 import "normalize.css"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import './styles/index.css'
 import { ToastContainer } from 'react-toastify';
 
 function App() {

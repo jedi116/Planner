@@ -79,19 +79,18 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
         authProvider: "local",
         email,
       });
+      toast.success("Registered successfully")
     } catch (err: any) {
-      console.error(err);
-      toast.error(err.message);
+      toast.error(err.message.split("/")[1].split(")")[0]);
     }
   };
 
   const sendPasswordReset = async (email: string) => {
     try {
       await sendPasswordResetEmail(auth, email);
-      alert("Password reset link sent!");
+      toast.success("Password reset link sent!");
     } catch (err: any) {
-      console.error(err);
-      toast.error(err.message);
+      toast.error(err.message.split("/")[1].split(")")[0]);
     }
   };
 

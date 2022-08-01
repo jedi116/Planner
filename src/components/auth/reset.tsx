@@ -4,17 +4,52 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { auth, sendPasswordReset } from "../../firebase/firebase";
 import "./Reset.css";
+import { Alert } from "@mui/material";
+
+type formValidation = {
+  valid: boolean;
+  validationErroMessage: string | null;
+}
+
+const defaultFormValidationValues: formValidation = {
+  valid: true,
+  validationErroMessage: null
+}
+
 function Reset() {
   const [email, setEmail] = useState("");
   const [user, loading, error] = useAuthState(auth);
+  const [formValidation, setFormValidation] = useState<formValidation>(defaultFormValidationValues);
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;
     if (user) navigate("/dashboard");
   }, [user, loading]);
+
+  const handlePasswordReset = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (!email) {
+      setFormValidation({
+        valid: false,
+        validationErroMessage: "Email can not be empty"
+      })
+      return 
+    } else if (!email.includes("@")) {
+      setFormValidation({
+        valid: false,
+        validationErroMessage: "Entered value must be an email"
+      })
+      return
+    }
+    setFormValidation(defaultFormValidationValues)
+    sendPasswordReset(email);
+  }
   return (
     <div className="reset">
       <div className="reset__container">
+      {
+        !formValidation.valid && <Alert severity="error">{formValidation.validationErroMessage}</Alert>
+      }
         <input
           type="text"
           className="reset__textBox"
@@ -24,7 +59,7 @@ function Reset() {
         />
         <button
           className="reset__btn"
-          onClick={() => sendPasswordReset(email)}
+          onClick={handlePasswordReset}
         >
           Send password reset email
         </button>

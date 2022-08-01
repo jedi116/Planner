@@ -73,7 +73,6 @@ function Login() {
     }
     try {
       const siginInResponse = await signInWithEmailAndPassword(auth,email, password)
-      console.log(siginInResponse)
       toast.success("Successfully logged in")
     } catch(e: any) {
       toast.error(e.message.split("/")[1].split(")")[0])
@@ -89,7 +88,9 @@ function Login() {
   return (
     <div>
       {
-        loading ? <BoxesLoaderComponent /> : (
+        loading ? 
+          <BoxesLoaderComponent />
+         : (
           <div className="login">
             <div className="form">
               <form className ="login-form">

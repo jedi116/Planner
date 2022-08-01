@@ -46,10 +46,12 @@ const navigate = useNavigate();
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick= {()=>{console.log("menu icon clicked")}}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={()=>{ navigate('/')}}>
+            
             Planner
           </Typography>
           {user && (
