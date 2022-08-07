@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate} from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
-import { BoxesLoaderComponent } from "../common/boxeLoader";
+import { BoxesLoaderComponent } from "../../common/boxeLoader";
 import { Alert } from "@mui/material";
 
 import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from "../../firebase/firebase";
-import "./Register.css";
+} from "../../../firebase/firebase";
+import "./index.css";
 
 
 interface formValidation {
@@ -32,7 +32,7 @@ const defaultFormValidationValues: formValidation = {
 }
 
 
-function Register() {
+function Index() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -145,4 +145,4 @@ function Register() {
     </div>
   );
 }
-export default Register;
+export default Index;

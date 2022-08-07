@@ -10,10 +10,10 @@ import { ToastContainer } from 'react-toastify';
 function App() {
 
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
       <MenuAppBar/>
-      <ToastContainer theme = "colored" />
+      <ToastContainer theme = 'colored' />
         <Router/>
       </BrowserRouter>
     </div>

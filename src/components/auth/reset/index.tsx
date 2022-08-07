@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { auth, sendPasswordReset } from "../../firebase/firebase";
-import "./Reset.css";
+import { auth, sendPasswordReset } from "../../../firebase/firebase";
+import "./index.css";
 import { Alert } from "@mui/material";
 
 type formValidation = {
@@ -16,7 +16,7 @@ const defaultFormValidationValues: formValidation = {
   validationErroMessage: null
 }
 
-function Reset() {
+function Index() {
   const [email, setEmail] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const [formValidation, setFormValidation] = useState<formValidation>(defaultFormValidationValues);
@@ -70,4 +70,4 @@ function Reset() {
     </div>
   );
 }
-export default Reset;
+export default Index;

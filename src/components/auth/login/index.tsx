@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { signInWithGoogle } from "../../firebase/firebase";
-import { auth } from "../../firebase/firebase";
-import "./Login.css";
+import { signInWithGoogle } from "../../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
+import "./index.css";
 import { Link } from "react-router-dom";
 import LockIcon from '@mui/icons-material/Lock';
 import GoogleIcon from '@mui/icons-material/Google';
 import { toast } from "react-toastify";
 import Alert from '@mui/material/Alert';
-import { BoxesLoaderComponent } from "../common/boxeLoader";
+import { BoxesLoaderComponent } from "../../common/boxeLoader";
 
 interface formValidation {
    emailValid: boolean;
@@ -25,7 +25,7 @@ const defaultFormValidationValues: formValidation = {
   passwordValid: true,
   passwordValidationErrorMessage: null,
 }
-function Login() {
+function Index() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [user, loading, error] = useAuthState(auth);
@@ -144,4 +144,4 @@ function Login() {
     </div>
   );
 }
-export default Login;
+export default Index;
