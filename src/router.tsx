@@ -8,6 +8,7 @@ import Register from "./components/auth/register";
 import Reset from "./components/auth/reset";
 import { Home } from "./components/pages/homepage/home";
 import { RouteType } from "./intefaces/router";
+import { Profile } from "./components/user/profile/Profile";
 
 const routes: RouteType[] = [{
     path: "/login",
@@ -32,6 +33,11 @@ const routes: RouteType[] = [{
     path: "/",
     element: <Home/>,
     authRequired: false
+
+},{
+    path: "/profile",
+    element: <Profile/>,
+    authRequired: true
 
 }]
 

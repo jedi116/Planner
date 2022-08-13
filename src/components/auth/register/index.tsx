@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate} from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
-import { BoxesLoaderComponent } from "../../common/boxeLoader";
+import { BoxesLoaderComponent } from "../../common/BoxeLoader";
 import { Alert } from "@mui/material";
 
 import {

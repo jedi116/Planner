@@ -3,3 +3,17 @@
 body {
   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
 }
+
+.appBar__menu {
+  background: linear-gradient(90deg, #4b6cb7 0%, #6780b4 100%);
+  color: white;
+  width:250px;
+  padding-top: 120px;
+  padding-left: 60px; 
+  height: 100%;
+}
+
+.appBar__menu__image {
+  width:120px;
+  height:120px;
+}

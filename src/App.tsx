@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import MenuAppBar from './components/common/appbar'
+import MenuAppBar from './components/common/appbar/Appbar'
 import { Router } from './router'
 import "normalize.css"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

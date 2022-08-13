@@ -10,7 +10,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import GoogleIcon from '@mui/icons-material/Google';
 import { toast } from "react-toastify";
 import Alert from '@mui/material/Alert';
-import { BoxesLoaderComponent } from "../../common/boxeLoader";
+import { BoxesLoaderComponent } from "../../common/BoxeLoader";
 
 interface formValidation {
    emailValid: boolean;
