@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import GoogleIcon from '@mui/icons-material/Google'
-import { BoxesLoaderComponent } from '../../common/BoxeLoader'
+import { BoxesLoaderComponent } from '../../common/boxeLoader'
 import { Alert } from '@mui/material'
 
 import { auth, registerWithEmailAndPassword, signInWithGoogle } from '../../../firebase/firebase'
 import './index.css'
 
 interface formValidation {
-  fullNameValid: Boolean
+  fullNameValid: boolean
   fullNameErrorMessage: string | null
   emailValid: boolean
   emailValidationErrorMessage: string | null
