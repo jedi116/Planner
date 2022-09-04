@@ -2,9 +2,9 @@ import React, { ErrorInfo } from 'react'
 
 interface ErrorBoundaryState {
   hasError: boolean
-  error: Error | null
+  error: any
 }
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends React.Component<unknown, ErrorBoundaryState> {
   constructor(props: any) {
     super(props)
     const initState: ErrorBoundaryState = {
@@ -19,7 +19,8 @@ class ErrorBoundary extends React.Component {
     return { hasError: true }
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {}
+   // eslint-disable-next-line @typescript-eslint/no-empty-function
+   componentDidCatch(error: Error, errorInfo: ErrorInfo) {}
 
   render() {
     const { hasError, error } = this.state
@@ -33,7 +34,8 @@ class ErrorBoundary extends React.Component {
       )
     }
 
-    return this.props.children
+    // eslint-disable-next-line react/prop-types
+    return this.props?.children
   }
 }
 
