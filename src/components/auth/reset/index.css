@@ -1,15 +1,14 @@
-
-.login {
+.reset {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
   font-family: 'Comfortaa', cursive;
 }
 
-.form {
+.reset__container {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
   max-width: 360px;
   margin: 0 auto 100px;
@@ -17,7 +16,7 @@
   text-align: center;
 }
 
-.form__input {
+.reset__textBox {
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -30,11 +29,11 @@
   font-family: 'Comfortaa', cursive;
 }
 
-.form__input:focus {
+.reset__textBox:focus {
   background: #dbdbdb;
 }
 
-.form__button {
+.reset__btn {
   font-family: 'Comfortaa', cursive;
   text-transform: uppercase;
   outline: 0;
@@ -43,7 +42,7 @@
   border: 0;
   border-radius: 5px;
   padding: 10px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -54,13 +53,4 @@
 
 .form__button:active {
   background: #395591;
-}
-
-.form__icon {
-  color: #4b6cb7;
-  margin-bottom: 10px;
-}
-
-.validation_warning{
-  color: rgb(133, 37, 37);
 }
