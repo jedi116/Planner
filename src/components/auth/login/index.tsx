@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { signInWithGoogle } from '../../../firebase/firebase'
-import { auth } from '../../../firebase/firebase'
+import { signInWithGoogle, auth } from '../../../firebase/firebase'
 import './index.css'
-import { Link } from 'react-router-dom'
 import LockIcon from '@mui/icons-material/Lock'
 import GoogleIcon from '@mui/icons-material/Google'
 import { toast } from 'react-toastify'
 import Alert from '@mui/material/Alert'
-import { BoxesLoaderComponent } from '../../common/BoxeLoader'
+import { BoxesLoaderComponent } from '../../common/boxeLoader'
 
 interface formValidation {
   emailValid: boolean
@@ -134,7 +132,7 @@ function Index() {
                 <Link to='/reset'>Forgot Password</Link>
               </div>
               <div>
-                Don't have an account? <Link to='/register'>Register</Link> now.
+                {'Don\'t have an account?'} <Link to='/register'>Register</Link> now.
               </div>
             </form>
           </div>
