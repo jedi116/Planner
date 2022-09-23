@@ -19,8 +19,8 @@ class ErrorBoundary extends React.Component<unknown, ErrorBoundaryState> {
     return { hasError: true }
   }
 
-   // eslint-disable-next-line @typescript-eslint/no-empty-function
-   componentDidCatch(error: Error, errorInfo: ErrorInfo) {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {}
 
   render() {
     const { hasError, error } = this.state
