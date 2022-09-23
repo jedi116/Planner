@@ -9,12 +9,14 @@ import { Button, TextField } from '@mui/material'
 import { useUserProfile } from '../../../customhooks/user'
 import { IProfileFormType } from '../../../intefaces/profile'
 import { updateUserProfile } from '../../../service/profile'
+import {userConstext} from '../userProfileContextWrapper'
 
 export const Profile: React.FC<unknown> = () => {
   const [user, loading, error] = useAuthState(auth)
   const [profilePicture, setProfilePicture] = React.useState<any>(null)
   const mounted = useMounted()
-  const { userData, getProfile } = useUserProfile(user)
+  const userProfileContext = React.useContext(userConstext)
+  const {userData, getUserProfile} = userProfileContext
   const [profileFormValues, setProfileFormValues] = React.useState<IProfileFormType>({
     name: ' ',
     occupation: ' ',
@@ -23,12 +25,11 @@ export const Profile: React.FC<unknown> = () => {
     if (!user && mounted) {
       toast.warning('Needs Login to access this page')
     }
-    getProfile()
   }, [user, loading])
   React.useEffect(() => {
     setProfileFormValues({
       ...profileFormValues,
-      name: userData.name || '',
+      name:  userData.name || '',
       occupation: userData.occupation || '',
     })
     setProfilePicture(userData.profilePicture)
@@ -55,7 +56,7 @@ export const Profile: React.FC<unknown> = () => {
   const onUserProfileFormSubmit = (e: React.ChangeEvent<any>) => {
     e.preventDefault()
     if (!validateUserProfileForm()) return
-    updateUserProfile(profileFormValues, user)
+    updateUserProfile(profileFormValues, user).then(()=> getUserProfile())         
   }
   return (
     <div className='profile__container'>

@@ -14,11 +14,11 @@ import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { Menu as CustomMenu } from './Menu'
 import { AppBarWrapper, AppBarContext } from './AppbarWrapper'
-import { useUserProfile } from '../../../customhooks/user'
+import {userConstext} from '../../user/userProfileContextWrapper'
 
 const MenuAppBar = () => {
   const [user, loading, error] = useAuthState(auth)
-  const { userData, getProfile } = useUserProfile(user)
+  const userProfileContext = React.useContext(userConstext)
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const appBarContext = React.useContext(AppBarContext)
@@ -43,10 +43,6 @@ const MenuAppBar = () => {
     setAnchorEl(null)
     logout()
   }
-  React.useEffect(() => {
-    getProfile()
-  }, [user])
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
@@ -84,7 +80,7 @@ const MenuAppBar = () => {
                 onClick={handleMenu}
                 color='inherit'
               >
-                <Avatar alt='Remy Sharp' src={userData.profilePicture} />
+                <Avatar alt='Remy Sharp' src={userProfileContext.userData.profilePicture} />
               </IconButton>
               <Menu
                 id='menu-appbar'
