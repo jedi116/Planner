@@ -18,7 +18,7 @@ interface MenuProps {
 
 export const Menu: React.FC<MenuProps> = ({ isOpen }) => {
   const appBarContext = React.useContext(AppBarContext)
-  const listOfItems = ['Home', 'Profile', 'Dashbaord']
+  const listOfItems = ['Home', 'Profile', 'Dashboard']
   const navigate = useNavigate()
   return (
     <div>
@@ -36,7 +36,7 @@ export const Menu: React.FC<MenuProps> = ({ isOpen }) => {
                   primary={item}
                   onClick={() => {
                     appBarContext.toggleAppBarMenu(false)
-                    navigate(`/${item}`)
+                    navigate(`/${item.toLowerCase()}`)
                   }}
                 />
               </ListItemButton>

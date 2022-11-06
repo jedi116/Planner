@@ -4,9 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { toast } from 'react-toastify'
 import './index.css'
 import workImage from '../../../assests/profile_default.jpg'
-import { useMounted } from '../../../customhooks/common'
+import { useLoginRedirect } from '../../../customhooks/common'
 import { Button, TextField } from '@mui/material'
-import { useUserProfile } from '../../../customhooks/user'
 import { IProfileFormType } from '../../../intefaces/profile'
 import { updateUserProfile } from '../../../service/profile'
 import { userConstext } from '../userProfileContextWrapper'
@@ -14,18 +13,13 @@ import { userConstext } from '../userProfileContextWrapper'
 export const Profile: React.FC<unknown> = () => {
   const [user, loading, error] = useAuthState(auth)
   const [profilePicture, setProfilePicture] = React.useState<any>(null)
-  const mounted = useMounted()
   const userProfileContext = React.useContext(userConstext)
   const { userData, getUserProfile } = userProfileContext
   const [profileFormValues, setProfileFormValues] = React.useState<IProfileFormType>({
     name: ' ',
     occupation: ' ',
   })
-  React.useEffect(() => {
-    if (!user && mounted) {
-      toast.warning('Needs Login to access this page')
-    }
-  }, [user, loading])
+  useLoginRedirect()
   React.useEffect(() => {
     setProfileFormValues({
       ...profileFormValues,
