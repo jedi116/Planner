@@ -7,6 +7,7 @@ import { Home } from './components/pages/homepage/home'
 import { RouteType } from './intefaces/router'
 import { Profile } from './components/user/profile'
 import { Dashbaord } from './components/user/dashboard'
+import { GoalsPage as Goals } from './components/goals'
 
 const routes: RouteType[] = [
   {
@@ -42,6 +43,11 @@ const routes: RouteType[] = [
   {
     path: '/dashboard',
     element: <Dashbaord />,
+    authRequired: true,
+  },
+  {
+    path: '/goals',
+    element: <Goals />,
     authRequired: true,
   },
 ]

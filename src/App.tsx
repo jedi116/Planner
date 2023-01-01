@@ -8,16 +8,16 @@ import 'react-toastify/dist/ReactToastify.css'
 import './styles/index.css'
 import { ToastContainer } from 'react-toastify'
 import { UserProfileContextWrapper } from './components/user/userProfileContextWrapper'
-import WebFont from 'webfontloader';
+import WebFont from 'webfontloader'
 
 function App() {
-  React.useEffect(()=>{
+  React.useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Droid Sans', 'JetBrains Mono']
-      }
+        families: ['Droid Sans', 'JetBrains Mono'],
+      },
     })
-  },[])
+  }, [])
   return (
     <div className='App'>
       <BrowserRouter>

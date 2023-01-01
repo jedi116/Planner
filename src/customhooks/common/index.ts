@@ -7,6 +7,7 @@ export const useMounted = () => {
   const [mounted, setMounted] = React.useState<boolean>(false)
   React.useEffect(() => {
     setMounted(true)
+    return () => setMounted(false)
   }, [])
 
   return mounted

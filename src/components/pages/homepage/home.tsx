@@ -2,7 +2,7 @@ import React from 'react'
 import './home.css'
 import workImage from '../../../assests/work1.1.jpg'
 
-export const Home: React.FC<{}> = () => {
+export const Home: React.FC<Record<string, never>> = () => {
   return (
     <div>
       <div
@@ -26,7 +26,7 @@ export const Home: React.FC<{}> = () => {
                 Planner is a tool to plan and store upcoming events. Whelther your a student or a
                 working professional you can use planner to plan important upcoming events.
               </p>
-              <a href='#' className='btn bg-danger text-white fs-5'>
+              <a href='/dashboard' className='btn bg-danger text-white fs-5'>
                 Get started
               </a>
             </div>

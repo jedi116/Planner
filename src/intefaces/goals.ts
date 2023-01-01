@@ -1,7 +1,10 @@
 export interface Goals {
-    title: string;
-    description: string;
-    type: 'short term' | 'long term';
-    uid: string;
-    progress: number;
+  id: string
+  title: string
+  description: string
+  type: GoalType
+  uid: string
+  progress: number
 }
+
+export type GoalType = 'short term' | 'long term'
