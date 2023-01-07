@@ -4,7 +4,7 @@ import { DashboardTabs } from './dashboard-tabs'
 import { useRecentActivity } from '../../../customhooks/common'
 export const RightSide: React.FC<unknown> = () => {
   const userProfileContext = React.useContext(userConstext)
-  const {recentActivity, getRecentActivity} = useRecentActivity()
+  const { recentActivity, getRecentActivity } = useRecentActivity()
 
   return (
     <div className='dashboard-right-side'>
@@ -19,7 +19,9 @@ export const RightSide: React.FC<unknown> = () => {
           return (
             <div key={data?.id} className='dashboard-right-recent-list'>
               <span className='dashboard-right-recent-list-title'>{data?.title}</span>
-              <span className='dashboard-right-recent-list-time'>{data?.time.toDate().toDateString()}</span>
+              <span className='dashboard-right-recent-list-time'>
+                {data?.time.toDate().toDateString()}
+              </span>
             </div>
           )
         })}

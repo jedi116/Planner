@@ -26,7 +26,7 @@ export const UserProfileContextWrapper: React.FC<unknown> = ({ children }) => {
   const { userData, getProfile } = useUserProfile(user)
   const mounted = useMounted()
   React.useEffect(() => {
-    user && mounted  && getProfile()
+    user && mounted && getProfile()
   }, [user])
   return (
     <userConstext.Provider value={{ userData, getUserProfile: getProfile }}>
