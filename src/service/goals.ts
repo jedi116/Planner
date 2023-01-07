@@ -13,7 +13,9 @@ import { db } from '../firebase/firebase'
 import { toast } from 'react-toastify'
 import { Goals } from '../intefaces/goals'
 import { v4 as uuidv4 } from 'uuid'
-
+import ActivityService from './activity'
+import { ActivityType } from '../intefaces/dashboard'
+import { Timestamp } from 'firebase/firestore'
 export default new (class GoalService {
   async addGoal(data: Partial<Goals>) {
     try {
@@ -25,6 +27,13 @@ export default new (class GoalService {
         type: data.type,
         progress: data.progress,
       })
+
+      await ActivityService.addActivity({
+        id: uuidv4(),
+        time: Timestamp.now(),
+        type: ActivityType.AddGoal,
+        title: 'Added an a new goal'
+      }, data.uid || '')
       toast.success('Goal Added Successfully')
     } catch (error: any) {
       console.log(error)
@@ -72,6 +81,12 @@ export default new (class GoalService {
       const document = await getDocs(q)
       const docRef = doc(db, 'goals', document.docs[0].id)
       await updateDoc(docRef, data)
+      await ActivityService.addActivity({
+        id: uuidv4(),
+        time: Timestamp.now(),
+        type: ActivityType.UpdateGoal,
+        title: 'Modified a  goal'
+      }, data.uid || '')
       toast.success('Successfully updated Goal')
     } catch (error: any) {
       console.log(error)

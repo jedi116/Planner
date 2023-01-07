@@ -2,6 +2,7 @@ import React from 'react'
 import { IUserProfileType, useUserProfile } from '../../customhooks/user'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../../firebase/firebase'
+import { useMounted } from '../../customhooks/common'
 
 export interface IUserProfileStateContextType {
   userData: IUserProfileType
@@ -23,8 +24,9 @@ export const userConstext = React.createContext<IUserProfileStateContextType>(de
 export const UserProfileContextWrapper: React.FC<unknown> = ({ children }) => {
   const [user, loading, error] = useAuthState(auth)
   const { userData, getProfile } = useUserProfile(user)
+  const mounted = useMounted()
   React.useEffect(() => {
-    user && getProfile()
+    user && mounted  && getProfile()
   }, [user])
   return (
     <userConstext.Provider value={{ userData, getUserProfile: getProfile }}>

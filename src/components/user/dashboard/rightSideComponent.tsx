@@ -1,28 +1,10 @@
 import React from 'react'
 import { userConstext } from '../userProfileContextWrapper'
 import { DashboardTabs } from './dashboard-tabs'
-import { RecentActivity } from '../../../intefaces/dashboard'
-
-const sample: Array<RecentActivity> = [
-  {
-    title: 'added new plan for date 04/04/2034',
-    type: 'NEW PLAN',
-    time: new Date(),
-  },
-  {
-    title: 'modified plan for date 04/05/2021',
-    type: 'CHANGE PLAN',
-    time: new Date(),
-  },
-  {
-    title: 'added new plan for date 04/04/2024',
-    type: 'NEW PLAN',
-    time: new Date(),
-  },
-]
-
+import { useRecentActivity } from '../../../customhooks/common'
 export const RightSide: React.FC<unknown> = () => {
   const userProfileContext = React.useContext(userConstext)
+  const {recentActivity, getRecentActivity} = useRecentActivity()
 
   return (
     <div className='dashboard-right-side'>
@@ -33,14 +15,15 @@ export const RightSide: React.FC<unknown> = () => {
       </div>
       <div className='dashboard-right-recent'>
         <span className='dashboard-right-recent-headerText'>Recent Activity</span>
-        {sample.map((data, index) => {
+        {recentActivity?.map((data) => {
           return (
-            <div key={index} className='dashboard-right-recent-list'>
-              <span className='dashboard-right-recent-list-title'>{data.title}</span>
-              <span className='dashboard-right-recent-list-time'>{data.time.toDateString()}</span>
+            <div key={data?.id} className='dashboard-right-recent-list'>
+              <span className='dashboard-right-recent-list-title'>{data?.title}</span>
+              <span className='dashboard-right-recent-list-time'>{data?.time.toDate().toDateString()}</span>
             </div>
           )
         })}
+        {!recentActivity?.length && <>No data</>}
       </div>
       <div>
         <DashboardTabs />

@@ -29,7 +29,7 @@ class ErrorBoundary extends React.Component<unknown, ErrorBoundaryState> {
       return (
         <div>
           <h1>Something went wrong.</h1>
-          <p>{error.stack}</p>
+          <p>{error?.stack}</p>
         </div>
       )
     }
