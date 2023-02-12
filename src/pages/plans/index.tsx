@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
-import TabPanel, { a11yProps } from '../common/tabPanel'
+import TabPanel, { a11yProps } from '../../components/common/tabPanel'
 import PlanCalendar from './planCalendar'
 
 const Plan: FC<{}> = () => {

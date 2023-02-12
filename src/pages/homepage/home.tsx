@@ -1,6 +1,6 @@
 import React from 'react'
 import './home.css'
-import workImage from '../../../assests/work1.1.jpg'
+import workImage from '@assets/work1.1.jpg'
 
 export const Home: React.FC<Record<string, never>> = () => {
   return (

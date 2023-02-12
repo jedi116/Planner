@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText'
 import Button from '@mui/material/Button'
 import { AppBarContext } from './AppbarWrapper'
 import { useNavigate } from 'react-router-dom'
-import logoImage from '../../../assests/Planner.png'
+import logoImage from '@assets/Planner.png'
 
 interface MenuProps {
   isOpen: boolean

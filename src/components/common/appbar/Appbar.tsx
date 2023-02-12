@@ -14,7 +14,7 @@ import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { Menu as CustomMenu } from './Menu'
 import { AppBarWrapper, AppBarContext } from './AppbarWrapper'
-import { userConstext } from '../../user/userProfileContextWrapper'
+import { userConstext } from '@pages/user/userProfileContextWrapper'
 
 const MenuAppBar = () => {
   const [user, loading, error] = useAuthState(auth)

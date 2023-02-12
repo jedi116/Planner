@@ -1,14 +1,14 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Login from './components/auth/login'
-import Register from './components/auth/register'
-import Reset from './components/auth/reset'
-import { Home } from './components/pages/homepage/home'
+import Login from '@pages/auth/login'
+import Register from '@pages/auth/register'
+import Reset from '@pages/auth/reset'
+import { Home } from '@pages/homepage/home'
 import { RouteType } from './intefaces/router'
-import { Profile } from './components/user/profile'
-import { Dashbaord } from './components/user/dashboard'
-import { GoalsPage as Goals } from './components/goals'
-import Plan from './components/plans'
+import { Profile } from '@pages/user/profile'
+import { Dashbaord } from '@pages/user/dashboard'
+import { GoalsPage as Goals } from '@pages/goals'
+import Plan from './pages/plans'
 
 const routes: RouteType[] = [
   {

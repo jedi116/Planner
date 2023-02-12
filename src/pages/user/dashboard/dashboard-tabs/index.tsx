@@ -1,11 +1,11 @@
 import React from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
-import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import { GoalsTab } from './goalsTab'
 import { useNavigate } from 'react-router-dom'
-import TabPanel, { a11yProps } from '../../../common/tabPanel'
+import TabPanel, {a11yProps} from '@components/common/tabPanel'
+
 
 export const DashboardTabs: React.FC = () => {
   const [value, setValue] = React.useState(0)
@@ -27,13 +27,7 @@ export const DashboardTabs: React.FC = () => {
           <GoalsTab />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <button
-            onClick={() => {
-              navigate('/plans')
-            }}
-          >
-            Plans
-          </button>
+          <button onClick={()=>{navigate('/plans')}} >Plans</button>
         </TabPanel>
         <TabPanel value={value} index={2}>
           Coming Soon
